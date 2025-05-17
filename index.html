@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="en" class="text-[14px] sm:text-[16px]">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ATHLEXPRO - Calisthenics and Street Workout Equipment</title>
+  <!-- Tailwind CSS (version locale) -->
+  <link rel="stylesheet" href="./css/output.css" />
+  <!-- Heroicons -->
+  <script src="https://unpkg.com/heroicons@2.0.18/dist/solid.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+  <!-- Custom Swiper Styles -->
+  <style>
+    /* Empêcher le débordement horizontal sur toute la page */
+    html,
+    body {
+      overflow-x: hidden;
+      max-width: 100%;
+    }
+
+    /* Styles Swiper */
+    .swiper {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .swiper-slide flex items-center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100% !important;
+      /* Force la largeur à 100% */
+    }
+
+    .swiper-slide flex items-center img {
+      max-width: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .swiper-pagination-bullet-active {
+      background-color: #4f46e5;
+      /* primary-600 color */
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+      color: #4f46e5;
+      /* primary-600 color */
+    }
+
+    .swiper-button-prev:after,
+    .swiper-button-next:after {
+      font-size: 24px;
+    }
+
+    /* Conteneur principal */
+    .show-product {
+      overflow: hidden;
+      max-width: 100%;
+    }
+  </style>
+  <script src="main.js"></script>
+  <script>
+    // Dictionnaire de traductions
+    const translations = {
+      en: {
+        // Navigation
+        'nav.home': 'Home',
+        'nav.products': 'Products',
+        'nav.about': 'About',
+        'nav.whatsapp': 'WhatsApp',
+        
+        // Hero section
+        'hero.title': 'Premium Calisthenics Equipment',
+        'hero.subtitle': 'Transform your training with professional quality equipment',
+        
+        // Products section
+        'products.title': 'Our Featured Products',
+        'product.inStock': 'In stock',
+        'product.orderVia': 'Order via WhatsApp',
+        'product.delivery': 'Fast delivery: 1-3 days',
+        
+        // Product 1
+        'product1.title': 'Parallel Dips',
+        'product1.description': 'Robust parallel bars for dips and strength exercises. High-resistance steel construction, premium non-slip finish.',
+        'product1.feature1': 'Large base',
+        'product1.feature2': 'Comfort grips',
+        'product1.feature3': 'Height: 108 cm',
+        'product1.feature4': 'Max load: 200kg',
+        
+        // Product 2
+        'product2.title': 'Statics Bars',
+        'product2.description': 'Professional static bars for handstand and static exercises. Maximum stability and optimal grip.',
+        'product2.feature1': 'Large base',
+        'product2.feature2': 'Professional grip',
+        'product2.feature3': 'Height: 108 cm',
+        'product2.feature4': 'Max load: 200kg',
+        
+        // Product 3
+        'product3.title': 'Parallettes',
+        'product3.description': 'Compact and lightweight parallettes for home or travel training. Ideal for L-sits, planks and push-ups.',
+        'product3.feature1': 'Ultra-lightweight',
+        'product3.feature2': 'Rubber coating',
+        'product3.feature3': 'Height: 20 cm',
+        'product3.feature4': 'Max load: 200kg',
+        
+        // Benefits section
+        'benefits.title': 'Why Choose AthlexPro?',
+        'benefits.delivery.title': 'Fast Delivery',
+        'benefits.delivery.description': 'Delivery within 48-72h throughout metropolitan France.',
+        'benefits.payment.title': 'cash on Delivery',
+        'benefits.payment.description': 'Pay only when you receive your equipment.',
+        'benefits.support.title': 'Customer Service',
+        'benefits.support.description': '7/7 support via WhatsApp to answer all your questions.',
+        
+        // About section
+        'about.title': 'ABOUT ATHLEXPRO',
+        'about.paragraph1': 'ATHLEXPRO makes calisthenics and street workout accessible to everyone with professional equipment at affordable prices.',
+        'about.paragraph2': 'Our products, designed with experienced athletes, offer durability, ergonomics, and performance to support your progression.',
+        'about.paragraph3': 'Join ATHLEXPRO and transform your training today!',
+        'about.cta': 'DISCOVER OUR PRODUCTS',
+        
+        // Footer
+        'footer.tagline': 'Quality sports equipment for everyone.',
+        'footer.instagram': 'Follow us on Instagram',
+        'footer.copyright': '2025 AthlexPro. All rights reserved.',
+      },
+      fr: {
+        // Navigation
+        'nav.home': 'Accueil',
+        'nav.products': 'Produits',
+        'nav.about': 'À propos',
+        'nav.whatsapp': 'WhatsApp',
+        
+        // Hero section
+        'hero.title': 'Équipement Premium pour Calisthenics',
+        'hero.subtitle': 'Transformez votre entraînement avec du matériel de qualité professionnelle',
+        
+        // Products section
+        'products.title': 'Nos Produits Phares',
+        'product.inStock': 'En stock',
+        'product.orderVia': 'Commander via WhatsApp',
+        'product.delivery': 'Livraison rapide: 1-3 jours',
+        
+        // Product 1
+        'product1.title': 'Parallèles Dips Premium',
+        'product1.description': 'Barres parallèles robustes pour dips et exercices de force. Construction en acier haute résistance, finition premium antidérapante.',
+        'product1.feature1': 'Base large',
+        'product1.feature2': 'Poignées confort',
+        'product1.feature3': 'Hauteur: 108 cm',
+        'product1.feature4': 'Charge max: 200kg',
+        
+        // Product 2
+        'product2.title': 'Barres de Statics Pro',
+        'product2.description': 'Barres de statics professionnelles pour handstand et exercices statiques. Stabilité maximale et prise en main optimale.',
+        'product2.feature1': 'Base large',
+        'product2.feature2': 'Grip professionnel',
+        'product2.feature3': 'Hauteur: 108 cm',
+        'product2.feature4': 'Charge max: 200kg',
+        
+        // Product 3
+        'product3.title': 'Parallettes Compact Pro',
+        'product3.description': 'Parallettes compactes et légères pour l\'entraînement à domicile ou en déplacement. Idéales pour L-sits, planche et pompes.',
+        'product3.feature1': 'Ultra-légères',
+        'product3.feature2': 'Revêtement caoutchouc',
+        'product3.feature3': 'Hauteur: 20 cm',
+        'product3.feature4': 'Charge max: 200kg',
+        
+        // Benefits section
+        'benefits.title': 'Pourquoi Choisir AthlexPro ?',
+        'benefits.delivery.title': 'Livraison Rapide',
+        'benefits.delivery.description': 'Livraison sous 48-72h dans toute la France métropolitaine.',
+        'benefits.payment.title': 'Paiement à la Livraison',
+        'benefits.payment.description': 'Payez uniquement lorsque vous recevez votre équipement.',
+        'benefits.support.title': 'Service Client',
+        'benefits.support.description': 'Support 7j/7 via WhatsApp pour répondre à toutes vos questions.',
+        
+        // About section
+        'about.title': 'À PROPOS D\'ATHLEXPRO',
+        'about.paragraph1': 'ATHLEXPRO rend le calisthenics et le street workout accessibles à tous avec des équipements professionnels à prix abordables.',
+        'about.paragraph2': 'Nos produits, conçus avec des athlètes expérimentés, offrent durabilité, ergonomie et performance pour soutenir votre progression.',
+        'about.paragraph3': 'Rejoignez ATHLEXPRO et transformez votre entraînement dès aujourd\'hui !',
+        'about.cta': 'DÉCOUVRIR NOS PRODUITS',
+        
+        // Footer
+        'footer.tagline': 'Matériel sportif de qualité pour tous.',
+        'footer.instagram': 'Suivez-nous sur Instagram',
+        'footer.copyright': '2025 AthlexPro. Tous droits réservés.',
+      },
+      ar: {
+        // Navigation
+        'nav.home': 'الرئيسية',
+        'nav.products': 'المنتجات',
+        'nav.about': 'من نحن',
+        'nav.whatsapp': 'واتساب',
+        
+        // Hero section
+        'hero.title': 'معدات كاليسثنكس متميزة',
+        'hero.subtitle': 'حوّل تدريبك باستخدام معدات ذات جودة احترافية',
+        
+        // Products section
+        'products.title': 'منتجاتنا المميزة',
+        'product.inStock': 'متوفر',
+        'product.orderVia': 'اطلب عبر واتساب',
+        'product.delivery': 'توصيل سريع: 1-3 أيام',
+        
+        // Product 1
+        'product1.title': 'متوازي ديبس بريميوم',
+        'product1.description': 'قضبان متوازية قوية للديبس وتمارين القوة. هيكل فولاذي عالي المقاومة، تشطيب مميز مضاد للانزلاق.',
+        'product1.feature1': 'قاعدة كبيرة',
+        'product1.feature2': 'مقابض مريحة',
+        'product1.feature3': 'الارتفاع: 108 سم',
+        'product1.feature4': 'الحمولة القصوى: 200 كجم',
+        
+        // Product 2
+        'product2.title': 'قضبان ستاتيكس برو',
+        'product2.description': 'قضبان ثابتة احترافية للوقوف على اليدين والتمارين الثابتة. ثبات أقصى وقبضة مثالية.',
+        'product2.feature1': 'قاعدة كبيرة',
+        'product2.feature2': 'قبضة احترافية',
+        'product2.feature3': 'الارتفاع: 108 سم',
+        'product2.feature4': 'الحمولة القصوى: 200 كجم',
+        
+        // Product 3
+        'product3.title': 'باراليتس كومباكت برو',
+        'product3.description': 'قضبان متوازية صغيرة وخفيفة للتدريب في المنزل أو أثناء السفر. مثالية لتمارين L-sits والبلانك والضغط.',
+        'product3.feature1': 'خفيفة جداً',
+        'product3.feature2': 'طلاء مطاطي',
+        'product3.feature3': 'الارتفاع: 20 سم',
+        'product3.feature4': 'الحمولة القصوى: 200 كجم',
+        
+        // Benefits section
+        'benefits.title': 'لماذا تختار أثليكس برو؟',
+        'benefits.delivery.title': 'توصيل سريع',
+        'benefits.delivery.description': 'توصيل خلال 48-72 ساعة في جميع أنحاء فرنسا.',
+        'benefits.payment.title': 'الدفع عند الاستلام',
+        'benefits.payment.description': 'ادفع فقط عندما تستلم معداتك.',
+        'benefits.support.title': 'خدمة العملاء',
+        'benefits.support.description': 'دعم على مدار الأسبوع عبر واتساب للإجابة على جميع أسئلتك.',
+        
+        // About section
+        'about.title': 'نبذة عن أثليكس برو',
+        'about.paragraph1': 'أثليكس برو تجعل رياضة الكاليسثنكس والستريت وورك أوت متاحة للجميع مع معدات احترافية بأسعار معقولة.',
+        'about.paragraph2': 'منتجاتنا، المصممة بالتعاون مع رياضيين ذوي خبرة، توفر المتانة والراحة والأداء لدعم تقدمك.',
+        'about.paragraph3': 'انضم إلى أثليكس برو وحول تدريبك اليوم!',
+        'about.cta': 'اكتشف منتجاتنا',
+        
+        // Footer
+        'footer.tagline': 'معدات رياضية عالية الجودة للجميع.',
+        'footer.instagram': 'تابعنا على انستغرام',
+        'footer.copyright': '2025 أثليكس برو. جميع الحقوق محفوظة.',
+      }
+    };
+
+    // WhatsApp messages par langue
+    const whatsappMessages = {
+      en: "Hello, I would like to know more about ATHLEXPRO products.",
+      fr: "Bonjour, je souhaite en savoir plus sur les produits ATHLEXPRO.",
+      ar: "مرحباً، أود معرفة المزيد عن منتجات ATHLEXPRO."
+    };
+
+    // Fonction pour mettre à jour les liens WhatsApp
+    function updateWhatsAppLinks(lang) {
+      const mainWhatsappLink = document.getElementById('whatsapp-link');
+      const mobileWhatsappLink = document.getElementById('mobile-whatsapp-link');
+      const message = encodeURIComponent(whatsappMessages[lang]);
+      
+      if (mainWhatsappLink) {
+        mainWhatsappLink.href = `https://wa.me/0601856921?text=${message}`;
+      }
+      
+      if (mobileWhatsappLink) {
+        mobileWhatsappLink.href = `https://wa.me/0601856921?text=${message}`;
+      }
+      
+      // Mettre à jour les liens WhatsApp des produits
+      const productLinks = document.querySelectorAll('a[href*="wa.me"]');
+      productLinks.forEach(link => {
+        if (link.id !== 'whatsapp-link' && link.id !== 'mobile-whatsapp-link') {
+          const productName = link.closest('.show-product').querySelector('h2').textContent.trim();
+          let productMessage = "";
+          
+          if (lang === 'en') {
+            productMessage = `Hello, I would like to order the ${productName} from ATHLEXPRO.`;
+          } else if (lang === 'fr') {
+            productMessage = `Bonjour, je souhaite commander des ${productName} ATHLEXPRO.`;
+          } else if (lang === 'ar') {
+            productMessage = `مرحباً، أود طلب ${productName} من ATHLEXPRO.`;
+          }
+          
+          link.href = `https://wa.me/0601856921?text=${encodeURIComponent(productMessage)}`;
+        }
+      });
+    }
+
+    // Fonction pour changer la langue
+    function changeLanguage(lang) {
+      // Mettre à jour la direction du document pour l'arabe
+      document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+      
+      // Appliquer les traductions
+      document.querySelectorAll('[data-i18n]').forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+          element.textContent = translations[lang][key];
+        }
+      });
+      
+      // Mettre à jour les liens WhatsApp
+      updateWhatsAppLinks(lang);
+      
+      // Synchroniser les sélecteurs de langue
+      document.getElementById('language-selector').value = lang;
+      document.getElementById('mobile-language-selector').value = lang;
+      
+      // Sauvegarder la préférence de langue
+      localStorage.setItem('preferredLanguage', lang);
+    }
+
+    // Initialiser la langue
+    document.addEventListener('DOMContentLoaded', () => {
+      // Récupérer la langue préférée ou utiliser l'anglais par défaut
+      const preferredLanguage = localStorage.getItem('preferredLanguage') || 'en';
+      
+      // Appliquer la langue préférée
+      changeLanguage(preferredLanguage);
+      
+      // Ajouter les écouteurs d'événements pour les sélecteurs de langue
+      document.getElementById('language-selector').addEventListener('change', (e) => {
+        changeLanguage(e.target.value);
+      });
+      
+      document.getElementById('mobile-language-selector').addEventListener('change', (e) => {
+        changeLanguage(e.target.value);
+      });
+    });
+  </script>
+</head>
+
+<body class="bg-gray-50 text-gray-900" style="font-family: 'Poppins', sans-serif">
+  <!-- Header -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-black text-white shadow-md">
+    <div class="max-w-screen-lg mx-auto px-4 py-2 flex justify-between items-center">
+      <a href="#" class="text-2xl font-bold tracking-tight"><img src="./images/logo.jpg" alt=""
+          class="max-w-full h-8 sm:h-10" /></a>
+      <nav class="hidden md:flex space-x-6 items-center">
+        <a href="#home" class="hover:text-gray-300 transition" data-i18n="nav.home">Home</a>
+        <a href="#products" class="hover:text-gray-300 transition" data-i18n="nav.products">Products</a>
+        <a href="#about" class="hover:text-gray-300 transition" data-i18n="nav.about">About</a>
+        <div class="relative mx-2">
+          <select id="language-selector" class="bg-gray-800 text-white text-sm rounded-md px-2 py-1 border border-gray-700 focus:outline-none focus:ring-1 focus:ring-primary-500">
+            <option value="en" selected>EN</option>
+            <option value="fr">FR</option>
+            <option value="ar">العربية</option>
+          </select>
+        </div>
+        <a href="https://wa.me/0601856921?text=Hello,%20I%20would%20like%20to%20know%20more%20about%20ATHLEXPRO%20products."
+          target="_blank" rel="noopener noreferrer" id="whatsapp-link"
+          class="flex items-center bg-[#25D366] hover:bg-[#22c55e] font-medium italic text-white px-2 py-1.5 rounded-md transition-colors duration-200 text-sm">
+          <svg class="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M17.498 14.382c-.301-.15-1.767-.867-2.04-.966-.273-.101-.473-.15-.673.15-.197.295-.771.964-.944 1.162-.175.195-.349.21-.646.075-.3-.15-1.263-.465-2.403-1.485-.888-.795-1.484-1.77-1.66-2.07-.174-.3-.019-.465.13-.615.136-.135.301-.345.451-.523.146-.181.194-.301.297-.496.1-.21.049-.375-.025-.524-.075-.15-.672-1.62-.922-2.206-.24-.584-.487-.51-.672-.51-.172-.015-.371-.015-.571-.015-.2 0-.523.074-.797.359-.273.3-1.045 1.02-1.045 2.475s1.07 2.865 1.219 3.075c.149.195 2.105 3.195 5.1 4.485.714.3 1.27.48 1.704.629.714.227 1.365.195 1.88.121.574-.091 1.767-.721 2.016-1.426.255-.705.255-1.29.18-1.425-.074-.135-.27-.21-.57-.345m-5.446 7.443h-.016c-1.77 0-3.524-.48-5.055-1.38l-.36-.214-3.75.975 1.005-3.645-.239-.375c-.99-1.576-1.516-3.391-1.516-5.26 0-5.445 4.455-9.885 9.942-9.885 2.654 0 5.145 1.035 7.021 2.91 1.875 1.859 2.909 4.35 2.909 6.99-.004 5.444-4.46 9.885-9.935 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.334.101 11.893c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652c1.746.943 3.71 1.444 5.71 1.447h.006c6.585 0 11.946-5.336 11.949-11.896 0-3.176-1.24-6.165-3.495-8.411" />
+          </svg>
+          <span data-i18n="nav.whatsapp">WhatsApp</span>
+        </a>
+      </nav>
+      <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+        </svg>
+      </button>
+    </div>
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="md:hidden hidden flex flex-col items-center bg-gray-900 pb-4 px-4">
+      <a href="#home" class="block py-2 hover:text-gray-300 transition" data-i18n="nav.home">Home</a>
+      <a href="#products" class="block py-2 hover:text-gray-300 transition" data-i18n="nav.products">Products</a>
+      <a href="#about" class="block py-2 hover:text-gray-300 transition" data-i18n="nav.about">About</a>
+      <div class="py-2">
+        <select id="mobile-language-selector" class="bg-gray-800 text-white text-sm rounded-md px-2 py-1 border border-gray-700 focus:outline-none focus:ring-1 focus:ring-primary-500">
+          <option value="en" selected>EN</option>
+          <option value="fr">FR</option>
+          <option value="ar">العربية</option>
+        </select>
+      </div>
+      <a href="https://wa.me/0601856921?text=Hello,%20I%20would%20like%20to%20know%20more%20about%20ATHLEXPRO%20products."
+        target="_blank" rel="noopener noreferrer" id="mobile-whatsapp-link"
+        class="flex items-center bg-[#25D366] hover:bg-[#22c55e] font-medium italic text-white px-2 py-1.5 rounded-md transition-colors duration-200 text-sm">
+        <svg class="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M17.498 14.382c-.301-.15-1.767-.867-2.04-.966-.273-.101-.473-.15-.673.15-.197.295-.771.964-.944 1.162-.175.195-.349.21-.646.075-.3-.15-1.263-.465-2.403-1.485-.888-.795-1.484-1.77-1.66-2.07-.174-.3-.019-.465.13-.615.136-.135.301-.345.451-.523.146-.181.194-.301.297-.496.1-.21.049-.375-.025-.524-.075-.15-.672-1.62-.922-2.206-.24-.584-.487-.51-.672-.51-.172-.015-.371-.015-.571-.015-.2 0-.523.074-.797.359-.273.3-1.045 1.02-1.045 2.475s1.07 2.865 1.219 3.075c.149.195 2.105 3.195 5.1 4.485.714.3 1.27.48 1.704.629.714.227 1.365.195 1.88.121.574-.091 1.767-.721 2.016-1.426.255-.705.255-1.29.18-1.425-.074-.135-.27-.21-.57-.345m-5.446 7.443h-.016c-1.77 0-3.524-.48-5.055-1.38l-.36-.214-3.75.975 1.005-3.645-.239-.375c-.99-1.576-1.516-3.391-1.516-5.26 0-5.445 4.455-9.885 9.942-9.885 2.654 0 5.145 1.035 7.021 2.91 1.875 1.859 2.909 4.35 2.909 6.99-.004 5.444-4.46 9.885-9.935 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.334.101 11.893c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652c1.746.943 3.71 1.444 5.71 1.447h.006c6.585 0 11.946-5.336 11.949-11.896 0-3.176-1.24-6.165-3.495-8.411" />
+        </svg>
+        <span data-i18n="nav.whatsapp">WhatsApp</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="py-12 pt-24 bg-gradient-to-b from-black to-gray-900 text-white">
+    <div class="max-w-screen-lg mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-6xl font-bold mb-4" data-i18n="hero.title">
+        Premium Calisthenics Equipment
+      </h1>
+      <p class="text-xl max-w-3xl mx-auto" data-i18n="hero.subtitle">
+        Transform your training with professional quality equipment
+      </p>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section id="products" class="py-12 bg-gray-50">
+    <div class="max-w-screen-lg mx-auto px-4">
+      <h2 class="sm:text-3xl text-xl font-bold text-center mb-6 sm:mb-12" data-i18n="products.title">
+        Our Featured Products
+      </h2>
+
+      <div class="flex flex-col gap-8">
+        <!-- Premier produit: Parallele Dips -->
+        <div class="show-product col-span-full bg-white rounded-lg shadow-lg overflow-hidden mx-auto">
+          <div class="md:flex flex-col md:flex-row items-center">
+            <!-- Slider Container -->
+            <div class="product__images md:w-full md:w-1/2 relative">
+              <!-- Navigation Arrows -->
+              <button id="prev-slide"
+                class="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white/70 hover:bg-white/90 rounded-full p-2 shadow-md transition-all">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+              </button>
+              <button id="next-slide"
+                class="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-white/70 hover:bg-white/90 rounded-full p-2 shadow-md transition-all">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </button>
+
+              <!-- Images Wrapper -->
+              <div class="slider-wrapper overflow-hidden">
+                <div id="slider-track" class="flex transition-transform duration-300 ease-out">
+                  <div class="slide flex items-center min-w-full">
+                    <img class="object-contain w-full max-h-[60vh] md:max-h-[70vh]" src="./images/paralleles-dips1.jpeg"
+                      alt="Parallele Dips 1" />
+                  </div>
+                  <div class="slide flex items-center min-w-full">
+                    <img class="object-contain w-full max-h-[60vh] md:max-h-[70vh]" src="./images/paralleles-dips2.jpeg"
+                      alt="Parallele Dips 2" />
+                  </div>
+                  <div class="slide flex items-center min-w-full">
+                    <img class="object-contain w-full max-h-[60vh] md:max-h-[70vh]" src="./images/paralleles-dips3.jpeg"
+                      alt="Parallele Dips 2" />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Bullets Navigation -->
+              <div class="bullets absolute bottom-4 left-0 right-0 flex justify-center items-center gap-3 z-10">
+                <button data-index="0" class="bullet w-3 h-3 rounded-full bg-primary-600 transition-all"></button>
+                <button data-index="1" class="bullet w-3 h-3 rounded-full bg-secondary-300 transition-all"></button>
+                <button data-index="2" class="bullet w-3 h-3 rounded-full bg-secondary-300 transition-all"></button>
+              </div>
+            </div>
+
+            <div class="product__data md:w-full md:w-1/2 p-3 bg-white">
+              <h2 class="text-xl font-bold mb-1 text-gray-800 leading-tight" data-i18n="product1.title">
+                Premium Parallel Dips
+              </h2>
+
+              <div class="mb-3 text-sm">
+                <p class="text-gray-600 mb-2" data-i18n="product1.description">
+                  Robust parallel bars for dips and strength exercises. High-resistance steel construction, premium non-slip finish.
+                </p>
+                <div class="grid grid-cols-2 gap-1 text-xs">
+                  <div class="flex items-center">
+                    <svg class="h-3 w-3 text-green-500 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clip-rule="evenodd" />
+                    </svg>
+                    <p class="text-gray-700" data-i18n="product1.feature1">Reinforced 3mm steel</p>
+                  </div>
+                  <div class="flex items-center">
+                    <svg class="h-3 w-3 text-green-500 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clip-rule="evenodd" />
+                    </svg>
+                    <p class="text-gray-700" data-i18n="product1.feature2">Comfort grips 42mm</p>
+                  </div>
+                  <div class="flex items-center">
+                    <svg class="h-3 w-3 text-green-500 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clip-rule="evenodd" />
+                    </svg>
+                    <p class="text-gray-700" data-i18n="product1.feature3">Height: 75 cm</p>
+                  </div>
+                  <div class="flex items-center">
+                    <svg class="h-3 w-3 text-green-500 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clip-rule="evenodd" />
+                    </svg>
+                    <p class="text-gray-700" data-i18n="product1.feature4">Max load: 200kg</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between mb-3 bg-gray-50 p-2 rounded-md text-sm">
+                <div>
+                  <span class="text-2xl font-bold text-gray-900">449</span>
+                  <span class="ml-1 text-sm text-gray-600">MAD</span>
+                  <div class="flex items-center gap-1">
+                    <del class="text-gray-500 text-xs">494 MAD</del>
+                    <span class="bg-red-100 text-red-700 px-1 py-0.5 rounded text-xs">-10%</span>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <span class="inline-flex items-center px-1.5 py-0.5 rounded-full text-xs bg-green-100 text-green-800">
+                    <span class="h-1.5 w-1.5 rounded-full bg-green-500 mr-1"></span>
+                    <span data-i18n="product.inStock">En stock</span>
+                  </span>
+                </div>
+              </div>
+
+              <a href="https://wa.me/0601856921?text=Bonjour,%20je%20souhaite%20commander%20des%20Parallèles%20Dips%20Premium%20ATHLEXPRO."
+                target="_blank" rel="noopener noreferrer"
+                class="mb-3 bg-[#25D366] text-white flex items-center justify-center w-full py-2 text-sm font-medium rounded shadow-sm hover:bg-[#22c55e] transition-colors duration-200">
+                <svg class="h-4 w-4 mr-1" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M17.498 14.382c-.301-.15-1.767-.867-2.04-.966-.273-.101-.473-.15-.673.15-.197.295-.771.964-.944 1.162-.175.195-.349.21-.646.075-.3-.15-1.263-.465-2.403-1.485-.888-.795-1.484-1.77-1.66-2.07-.174-.3-.019-.465.13-.615.136-.135.301-.345.451-.523.146-.181.194-.301.297-.496.1-.21.049-.375-.025-.524-.075-.15-.672-1.62-.922-2.206-.24-.584-.487-.51-.672-.51-.172-.015-.371-.015-.571-.015-.2 0-.523.074-.797.359-.273.3-1.045 1.02-1.045 2.475s1.07 2.865 1.219 3.075c.149.195 2.105 3.195 5.1 4.485.714.3 1.27.48 1.704.629.714.227 1.365.195 1.88.121.574-.091 1.767-.721 2.016-1.426.255-.705.255-1.29.18-1.425-.074-.135-.27-.21-.57-.345m-5.446 7.443h-.016c-1.77 0-3.524-.48-5.055-1.38l-.36-.214-3.75.975 1.005-3.645-.239-.375c-.99-1.576-1.516-3.391-1.516-5.26 0-5.445 4.455-9.885 9.942-9.885 2.654 0 5.145 1.035 7.021 2.91 1.875 1.859 2.909 4.35 2.909 6.99-.004 5.444-4.46 9.885-9.935 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.334.101 11.893c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652c1.746.943 3.71 1.444 5.71 1.447h.006c6.585 0 11.946-5.336 11.949-11.896 0-3.176-1.24-6.165-3.495-8.411" />
+                </svg>
+                <span data-i18n="product.orderVia">Commander via WhatsApp</span>
+              </a>
+
+              <div class="flex items-center gap-2 p-2 bg-gray-50 rounded-md border border-gray-200 text-xs">
+                <svg class="w-4 h-4 text-gray-600" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor">
+                  <path
+                    d="M 0 6 L 0 8 L 19 8 L 19 23 L 12.84375 23 C 12.398438 21.28125 10.851563 20 9 20 C 7.148438 20 5.601563 21.28125 5.15625 23 L 4 23 L 4 18 L 2 18 L 2 25 L 5.15625 25 C 5.601563 26.71875 7.148438 28 9 28 C 10.851563 28 12.398438 26.71875 12.84375 25 L 21.15625 25 C 21.601563 26.71875 23.148438 28 25 28 C 26.851563 28 28.398438 26.71875 28.84375 25 L 32 25 L 32 16.84375 L 31.9375 16.6875 L 29.9375 10.6875 L 29.71875 10 L 21 10 L 21 6 Z M 1 10 L 1 12 L 10 12 L 10 10 Z M 21 12 L 28.28125 12 L 30 17.125 L 30 23 L 28.84375 23 C 28.398438 21.28125 26.851563 20 25 20 C 23.148438 20 21.601563 21.28125 21.15625 23 L 21 23 Z M 2 14 L 2 16 L 8 16 L 8 14 Z M 9 22 C 10.117188 22 11 22.882813 11 24 C 11 25.117188 10.117188 26 9 26 C 7.882813 26 7 25.117188 7 24 C 7 22.882813 7.882813 22 9 22 Z M 25 22 C 26.117188 22 27 22.882813 27 24 C 27 25.117188 26.117188 26 25 26 C 23.882813 26 23 25.117188 23 24 C 23 22.882813 23.882813 22 25 22 Z">
+                  </path>
+                </svg>
+                <div>
+                  <p class="font-medium text-gray-900" data-i18n="product.delivery">
+                    Livraison rapide: 1-3 jours
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+ 
+        <!-- Second produit: Statics Bar -->
+        <div class="show-product col-span-full bg-white rounded-lg shadow-lg overflow-hidden mx-auto">
+          <div class="md:flex flex-col md:flex-row items-center">
+            <!-- Slider Container -->
+            <div class="product__images md:w-full md:w-1/2 relative">
+              <!-- Navigation Arrows -->
+              <button id="prev-slide-2"
+                class="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white/70 hover:bg-white/90 rounded-full p-2 shadow-md transition-all">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+              </button>
+              <button id="next-slide-2"
+                class="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-white/70 hover:bg-white/90 rounded-full p-2 shadow-md transition-all">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </button>
+
+              <!-- Images Wrapper -->
+              <div class="slider-wrapper overflow-hidden">
+                <div id="slider-track-2" class="flex transition-transform duration-300 ease-out">
+                  <div class="slide flex items-center min-w-full">
+                    <img class="object-contain w-full max-h-[60vh] md:max-h-[70vh]" src="./images/statics-bar1.jpeg"
+                      alt="Parallele Dips 1" />
+                  </div>
+                  <div class="slide flex items-center min-w-full">
+                    <img class="object-contain w-full max-h-[60vh] md:max-h-[70vh]" src="./images/statics-bar2.jpeg"
+                      alt="Parallele Dips 1" />
+                  </div>
+                  <div class="slide flex items-center min-w-full">
+                    <img class="object-contain w-full max-h-[60vh] md:max-h-[70vh]" src="./images/statics-bar3.jpeg"
+                      alt="Parallele Dips 1" />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Bullets Navigation -->
+              <div class="bullets-2 absolute bottom-4 left-0 right-0 flex justify-center items-center gap-3 z-10">
+                <button data-index="0" class="bullet w-3 h-3 rounded-full bg-primary-600 transition-all"></button>
+                <button data-index="1" class="bullet w-3 h-3 rounded-full bg-secondary-300 transition-all"></button>
+                <button data-index="2" class="bullet w-3 h-3 rounded-full bg-secondary-300 transition-all"></button>
+              </div>
+            </div>
+
+            <div class="product__data md:w-full md:w-1/2 p-3 bg-white">
+              <h2 class="text-xl font-bold mb-1 text-gray-800 leading-tight" data-i18n="product2.title">
+                Statics Pro Bars
+              </h2>
+
+              <div class="mb-3 text-sm">
+                <p class="text-gray-600 mb-2" data-i18n="product2.description">
+                  Professional static bars for handstand and static exercises. Maximum stability and optimal grip.
+                </p>
+                <div class="grid grid-cols-2 gap-1 text-xs">
+                  <div class="flex items-center">
+                    <svg class="h-3 w-3 text-green-500 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clip-rule="evenodd" />
+                    </svg>
+                    <p class="text-gray-700" data-i18n="product2.feature1">Extra-large base</p>
+                  </div>
+                  <div class="flex items-center">
+                    <svg class="h-3 w-3 text-green-500 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clip-rule="evenodd" />
+                    </svg>
+                    <p class="text-gray-700" data-i18n="product2.feature2">Professional grip</p>
+                  </div>
+                  <div class="flex items-center">
+                    <svg class="h-3 w-3 text-green-500 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clip-rule="evenodd" />
+                    </svg>
+                    <p class="text-gray-700" data-i18n="product2.feature3">Height: 30 cm</p>
+                  </div>
+                  <div class="flex items-center">
+                    <svg class="h-3 w-3 text-green-500 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clip-rule="evenodd" />
+                    </svg>
+                    <p class="text-gray-700" data-i18n="product2.feature4">Max load: 180kg</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between mb-3 bg-gray-50 p-2 rounded-md text-sm">
+                <div>
+                  <span class="text-2xl font-bold text-gray-900">230</span>
+                  <span class="ml-1 text-sm text-gray-600">MAD</span>
+                  <div class="flex items-center gap-1">
+                    <del class="text-gray-500 text-xs">269 MAD</del>
+                    <span class="bg-red-100 text-red-700 px-1 py-0.5 rounded text-xs">-12%</span>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <span class="inline-flex items-center px-1.5 py-0.5 rounded-full text-xs bg-green-100 text-green-800">
+                    <span class="h-1.5 w-1.5 rounded-full bg-green-500 mr-1"></span>
+                    <span data-i18n="product.inStock">En stock</span>
+                  </span>
+                </div>
+              </div>
+
+              <a href="https://wa.me/0601856921?text=Bonjour,%20je%20souhaite%20commander%20des%20Parallele%20Dips%20Premium%20Modèle%202%20ATHLEXPRO."
+                target="_blank" rel="noopener noreferrer"
+                class="mb-3 bg-[#25D366] text-white flex items-center justify-center w-full py-2 text-sm font-medium rounded shadow-sm hover:bg-[#22c55e] transition-colors duration-200">
+                <svg class="h-4 w-4 mr-1" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M17.498 14.382c-.301-.15-1.767-.867-2.04-.966-.273-.101-.473-.15-.673.15-.197.295-.771.964-.944 1.162-.175.195-.349.21-.646.075-.3-.15-1.263-.465-2.403-1.485-.888-.795-1.484-1.77-1.66-2.07-.174-.3-.019-.465.13-.615.136-.135.301-.345.451-.523.146-.181.194-.301.297-.496.1-.21.049-.375-.025-.524-.075-.15-.672-1.62-.922-2.206-.24-.584-.487-.51-.672-.51-.172-.015-.371-.015-.571-.015-.2 0-.523.074-.797.359-.273.3-1.045 1.02-1.045 2.475s1.07 2.865 1.219 3.075c.149.195 2.105 3.195 5.1 4.485.714.3 1.27.48 1.704.629.714.227 1.365.195 1.88.121.574-.091 1.767-.721 2.016-1.426.255-.705.255-1.29.18-1.425-.074-.135-.27-.21-.57-.345m-5.446 7.443h-.016c-1.77 0-3.524-.48-5.055-1.38l-.36-.214-3.75.975 1.005-3.645-.239-.375c-.99-1.576-1.516-3.391-1.516-5.26 0-5.445 4.455-9.885 9.942-9.885 2.654 0 5.145 1.035 7.021 2.91 1.875 1.859 2.909 4.35 2.909 6.99-.004 5.444-4.46 9.885-9.935 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.334.101 11.893c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652c1.746.943 3.71 1.444 5.71 1.447h.006c6.585 0 11.946-5.336 11.949-11.896 0-3.176-1.24-6.165-3.495-8.411" />
+                </svg>
+                <span data-i18n="product.orderVia">Commander via WhatsApp</span>
+              </a>
+
+              <div class="flex items-center gap-2 p-2 bg-gray-50 rounded-md border border-gray-200 text-xs">
+                <svg class="w-4 h-4 text-gray-600" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor">
+                  <path
+                    d="M 0 6 L 0 8 L 19 8 L 19 23 L 12.84375 23 C 12.398438 21.28125 10.851563 20 9 20 C 7.148438 20 5.601563 21.28125 5.15625 23 L 4 23 L 4 18 L 2 18 L 2 25 L 5.15625 25 C 5.601563 26.71875 7.148438 28 9 28 C 10.851563 28 12.398438 26.71875 12.84375 25 L 21.15625 25 C 21.601563 26.71875 23.148438 28 25 28 C 26.851563 28 28.398438 26.71875 28.84375 25 L 32 25 L 32 16.84375 L 31.9375 16.6875 L 29.9375 10.6875 L 29.71875 10 L 21 10 L 21 6 Z M 1 10 L 1 12 L 10 12 L 10 10 Z M 21 12 L 28.28125 12 L 30 17.125 L 30 23 L 28.84375 23 C 28.398438 21.28125 26.851563 20 25 20 C 23.148438 20 21.601563 21.28125 21.15625 23 L 21 23 Z M 2 14 L 2 16 L 8 16 L 8 14 Z M 9 22 C 10.117188 22 11 22.882813 11 24 C 11 25.117188 10.117188 26 9 26 C 7.882813 26 7 25.117188 7 24 C 7 22.882813 7.882813 22 9 22 Z M 25 22 C 26.117188 22 27 22.882813 27 24 C 27 25.117188 26.117188 26 25 26 C 23.882813 26 23 25.117188 23 24 C 23 22.882813 23.882813 22 25 22 Z">
+                  </path>
+                </svg>
+                <div>
+                  <p class="font-medium text-gray-900" data-i18n="product.delivery">
+                    Livraison rapide: 1-3 jours
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Troisième produit: Parallettes -->
+        <div class="show-product col-span-full bg-white rounded-lg shadow-lg overflow-hidden mx-auto">
+          <div class="md:flex flex-col md:flex-row items-center">
+            <!-- Slider Container -->
+            <div class="product__images md:w-full md:w-1/2 relative">
+              <!-- Navigation Arrows -->
+              <button id="prev-slide-3"
+                class="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white/70 hover:bg-white/90 rounded-full p-2 shadow-md transition-all">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+              </button>
+              <button id="next-slide-3"
+                class="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-white/70 hover:bg-white/90 rounded-full p-2 shadow-md transition-all">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </button>
+
+              <!-- Images Wrapper -->
+              <div class="slider-wrapper overflow-hidden">
+                <div id="slider-track-3" class="flex transition-transform duration-300 ease-out">
+                  <div class="slide flex items-center min-w-full">
+                    <img class="object-contain w-full max-h-[60vh] md:max-h-[70vh]" src="./images/parallettes1.jpeg"
+                      alt="Parallele Dips 1" />
+                  </div>
+                  <div class="slide flex items-center min-w-full">
+                    <img class="object-contain w-full max-h-[60vh] md:max-h-[70vh]" src="./images/parallettes2.jpg"
+                      alt="Parallele Dips 2" />
+                  </div>
+                  <div class="slide flex items-center min-w-full">
+                    <img class="object-contain w-full max-h-[60vh] md:max-h-[70vh]" src="./images/parallettes3.jpg"
+                      alt="Parallele Dips 2" />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Bullets Navigation -->
+              <div class="bullets-3 absolute bottom-4 left-0 right-0 flex justify-center items-center gap-3 z-10">
+                <button data-index="0" class="bullet w-3 h-3 rounded-full bg-primary-600 transition-all"></button>
+                <button data-index="1" class="bullet w-3 h-3 rounded-full bg-secondary-300 transition-all"></button>
+                <button data-index="2" class="bullet w-3 h-3 rounded-full bg-secondary-300 transition-all"></button>
+              </div>
+            </div>
+
+            <div class="product__data md:w-full md:w-1/2 p-3 bg-white">
+              <h2 class="text-xl font-bold mb-1 text-gray-800 leading-tight" data-i18n="product3.title">
+                Compact Pro Parallettes
+              </h2>
+
+              <div class="mb-3 text-sm">
+                <p class="text-gray-600 mb-2" data-i18n="product3.description">
+                  Compact and lightweight parallettes for home or travel training. Ideal for L-sits, planks and push-ups.
+                </p>
+                <div class="grid grid-cols-2 gap-1 text-xs">
+                  <div class="flex items-center">
+                    <svg class="h-3 w-3 text-green-500 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clip-rule="evenodd" />
+                    </svg>
+                    <p class="text-gray-700" data-i18n="product3.feature1">Ultra-lightweight</p>
+                  </div>
+                  <div class="flex items-center">
+                    <svg class="h-3 w-3 text-green-500 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clip-rule="evenodd" />
+                    </svg>
+                    <p class="text-gray-700" data-i18n="product3.feature2">Rubber coating</p>
+                  </div>
+                  <div class="flex items-center">
+                    <svg class="h-3 w-3 text-green-500 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clip-rule="evenodd" />
+                    </svg>
+                    <p class="text-gray-700" data-i18n="product3.feature3">Height: 25 cm</p>
+                  </div>
+                  <div class="flex items-center">
+                    <svg class="h-3 w-3 text-green-500 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clip-rule="evenodd" />
+                    </svg>
+                    <p class="text-gray-700" data-i18n="product3.feature4">Max load: 150kg</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between mb-3 bg-gray-50 p-2 rounded-md text-sm">
+                <div>
+                  <span class="text-2xl font-bold text-gray-900">149</span>
+                  <span class="ml-1 text-sm text-gray-600">MAD</span>
+                  <div class="flex items-center gap-1">
+                    <del class="text-gray-500 text-xs">179 MAD</del>
+                    <span class="bg-red-100 text-red-700 px-1 py-0.5 rounded text-xs">-15%</span>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <span class="inline-flex items-center px-1.5 py-0.5 rounded-full text-xs bg-green-100 text-green-800">
+                    <span class="h-1.5 w-1.5 rounded-full bg-green-500 mr-1"></span>
+                    <span data-i18n="product.inStock">En stock</span>
+                  </span>
+                </div>
+              </div>
+
+              <a href="https://wa.me/0601856921?text=Bonjour,%20je%20souhaite%20commander%20des%20Parallele%20Dips%20Premium%20Modèle%202%20ATHLEXPRO."
+                target="_blank" rel="noopener noreferrer"
+                class="mb-3 bg-[#25D366] text-white flex items-center justify-center w-full py-2 text-sm font-medium rounded shadow-sm hover:bg-[#22c55e] transition-colors duration-200">
+                <svg class="h-4 w-4 mr-1" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M17.498 14.382c-.301-.15-1.767-.867-2.04-.966-.273-.101-.473-.15-.673.15-.197.295-.771.964-.944 1.162-.175.195-.349.21-.646.075-.3-.15-1.263-.465-2.403-1.485-.888-.795-1.484-1.77-1.66-2.07-.174-.3-.019-.465.13-.615.136-.135.301-.345.451-.523.146-.181.194-.301.297-.496.1-.21.049-.375-.025-.524-.075-.15-.672-1.62-.922-2.206-.24-.584-.487-.51-.672-.51-.172-.015-.371-.015-.571-.015-.2 0-.523.074-.797.359-.273.3-1.045 1.02-1.045 2.475s1.07 2.865 1.219 3.075c.149.195 2.105 3.195 5.1 4.485.714.3 1.27.48 1.704.629.714.227 1.365.195 1.88.121.574-.091 1.767-.721 2.016-1.426.255-.705.255-1.29.18-1.425-.074-.135-.27-.21-.57-.345m-5.446 7.443h-.016c-1.77 0-3.524-.48-5.055-1.38l-.36-.214-3.75.975 1.005-3.645-.239-.375c-.99-1.576-1.516-3.391-1.516-5.26 0-5.445 4.455-9.885 9.942-9.885 2.654 0 5.145 1.035 7.021 2.91 1.875 1.859 2.909 4.35 2.909 6.99-.004 5.444-4.46 9.885-9.935 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.334.101 11.893c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652c1.746.943 3.71 1.444 5.71 1.447h.006c6.585 0 11.946-5.336 11.949-11.896 0-3.176-1.24-6.165-3.495-8.411" />
+                </svg>
+                <span data-i18n="product.orderVia">Commander via WhatsApp</span>
+              </a>
+
+              <div class="flex items-center gap-2 p-2 bg-gray-50 rounded-md border border-gray-200 text-xs">
+                <svg class="w-4 h-4 text-gray-600" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor">
+                  <path
+                    d="M 0 6 L 0 8 L 19 8 L 19 23 L 12.84375 23 C 12.398438 21.28125 10.851563 20 9 20 C 7.148438 20 5.601563 21.28125 5.15625 23 L 4 23 L 4 18 L 2 18 L 2 25 L 5.15625 25 C 5.601563 26.71875 7.148438 28 9 28 C 10.851563 28 12.398438 26.71875 12.84375 25 L 21.15625 25 C 21.601563 26.71875 23.148438 28 25 28 C 26.851563 28 28.398438 26.71875 28.84375 25 L 32 25 L 32 16.84375 L 31.9375 16.6875 L 29.9375 10.6875 L 29.71875 10 L 21 10 L 21 6 Z M 1 10 L 1 12 L 10 12 L 10 10 Z M 21 12 L 28.28125 12 L 30 17.125 L 30 23 L 28.84375 23 C 28.398438 21.28125 26.851563 20 25 20 C 23.148438 20 21.601563 21.28125 21.15625 23 L 21 23 Z M 2 14 L 2 16 L 8 16 L 8 14 Z M 9 22 C 10.117188 22 11 22.882813 11 24 C 11 25.117188 10.117188 26 9 26 C 7.882813 26 7 25.117188 7 24 C 7 22.882813 7.882813 22 9 22 Z M 25 22 C 26.117188 22 27 22.882813 27 24 C 27 25.117188 26.117188 26 25 26 C 23.882813 26 23 25.117188 23 24 C 23 22.882813 23.882813 22 25 22 Z">
+                  </path>
+                </svg>
+                <div>
+                  <p class="font-medium text-gray-900" data-i18n="product.delivery">
+                    Livraison rapide: 1-3 jours
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section id="benefits" class="py-10 sm:py-20 bg-gradient-to-b from-white to-gray-50">
+    <div class="max-w-screen-lg mx-auto px-4">
+      <h2 class="sm:text-3xl text-xl text-nowrap font-semibold text-center mb-16 relative">
+          <span
+            class="relative inline-block after:content-[''] after:absolute after:w-1/2 after:h-1 after:bg-gradient-to-r after:from-blue-500 after:to-purple-500 after:bottom-[-10px] after:left-1/4" data-i18n="benefits.title">
+            Pourquoi Choisir <span class="font-medium">AthlexPro</span> ?
+          </span>
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <!-- Benefit 1 -->
+        <div
+          class="bg-white p-8 rounded-xl shadow-lg text-center transition-all duration-300 hover:shadow-xl hover:translate-y-[-5px] border border-gray-100">
+          <div class="mb-6 flex justify-center">
+            <div class="p-4 rounded-full bg-blue-50 text-blue-500">
+              <!-- Truck icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M10 17h4V5H2v12h3"></path>
+                <path d="M20 17h2v-3.34a4 4 0 0 0-1.17-2.83L19 9h-5v8h1"></path>
+                <circle cx="7.5" cy="17.5" r="2.5"></circle>
+                <circle cx="17.5" cy="17.5" r="2.5"></circle>
+              </svg>
+            </div>
+          </div>
+          <h3 class="text-2xl font-bold mb-3 text-gray-800">
+            <span data-i18n="benefits.delivery.title">Livraison Rapide</span>
+          </h3>
+          <p class="text-gray-600 leading-relaxed">
+            <span data-i18n="benefits.delivery.description">Livraison sous 48-72h dans toute la France métropolitaine.</span>
+          </p>
+        </div>
+
+        <!-- Benefit 2 -->
+        <div
+          class="bg-white p-8 rounded-xl shadow-lg text-center transition-all duration-300 hover:shadow-xl hover:translate-y-[-5px] border border-gray-100">
+          <div class="mb-6 flex justify-center">
+            <div class="p-4 rounded-full bg-purple-50 text-purple-500">
+              <!-- Credit Card icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="20" height="14" x="2" y="5" rx="2"></rect>
+                <line x1="2" x2="22" y1="10" y2="10"></line>
+              </svg>
+            </div>
+          </div>
+          <h3 class="text-2xl font-bold mb-3 text-gray-800">
+            <span data-i18n="benefits.payment.title">Paiement à la Livraison</span>
+          </h3>
+          <p class="text-gray-600 leading-relaxed">
+            <span data-i18n="benefits.payment.description">Payez uniquement lorsque vous recevez votre équipement.</span>
+          </p>
+        </div>
+
+        <!-- Benefit 3 -->
+        <div
+          class="bg-white p-8 rounded-xl shadow-lg text-center transition-all duration-300 hover:shadow-xl hover:translate-y-[-5px] border border-gray-100">
+          <div class="mb-6 flex justify-center">
+            <div class="p-4 rounded-full bg-green-50 text-green-500">
+              <!-- Headphones icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3">
+                </path>
+              </svg>
+            </div>
+          </div>
+          <h3 class="text-2xl font-bold mb-3 text-gray-800">
+            <span data-i18n="benefits.support.title">Service Client</span>
+          </h3>
+          <p class="text-gray-600 leading-relaxed">
+            <span data-i18n="benefits.support.description">Support 7j/7 via WhatsApp pour répondre à toutes vos questions.</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Us Section -->
+  <section id="about" class="py-10 sm:py-20 bg-gray-50">
+    <div class="max-w-screen-lg mx-auto px-4 relative">
+      <!-- Élément décoratif minimaliste -->
+      <div class="absolute top-0 right-0 w-32 h-32 border-t-2 border-r-2 border-gray-200 -mt-8 mr-4 hidden md:block">
+      </div>
+
+      <div class="max-w-3xl mx-auto">
+        <div class="mb-8 relative">
+          <div class="w-16 h-1 bg-black mb-6 mx-auto"></div>
+          <h2 class="sm:text-3xl text-xl font-bold text-center text-gray-900 tracking-tight">
+            <span data-i18n="about.title">À PROPOS D'ATHLEXPRO</span>
+          </h2>
+          <div class="w-16 h-1 bg-black mt-6 mx-auto"></div>
+        </div>
+
+        <div class="bg-white p-8 border border-gray-200 shadow-sm">
+          <p class="text-gray-800 leading-relaxed mb-6">
+            <span data-i18n="about.paragraph1"><span class="font-medium">ATHLEXPRO</span> rend le calisthenics et
+            le street workout accessibles à tous avec des équipements
+            professionnels à prix abordables.</span>
+          </p>
+
+          <div class="w-full h-px bg-gray-200 my-6"></div>
+
+          <p class="text-gray-800 leading-relaxed mb-6">
+            <span data-i18n="about.paragraph2">Nos produits, conçus avec des athlètes expérimentés, offrent
+            durabilité, ergonomie et performance pour soutenir votre
+            progression.</span>
+          </p>
+
+          <div class="w-full h-px bg-gray-200 my-6"></div>
+
+          <p class="text-gray-800 leading-relaxed font-medium text-center">
+            <span data-i18n="about.paragraph3">Rejoignez <span class="font-bold">ATHLEXPRO</span> et transformez
+            votre entraînement dès aujourd'hui !</span>
+          </p>
+
+          <div class="mt-8 text-center">
+            <a href="#products"
+              class="inline-block px-8 py-3 bg-black text-white font-medium tracking-wide hover:bg-gray-900 transition-colors duration-300">
+              <span data-i18n="about.cta">DÉCOUVRIR NOS PRODUITS</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Élément décoratif minimaliste -->
+        <div
+          class="absolute bottom-0 left-0 w-32 h-32 border-b-2 border-l-2 border-gray-200 -mb-8 ml-4 hidden md:block">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-black text-white py-8">
+    <div class="max-w-screen-md mx-auto px-6">
+      <div class="flex flex-col items-center text-center space-y-6 md:flex-row md:justify-between md:text-left">
+        <!-- Logo et description -->
+        <div class="space-y-2">
+          <a href="#" class="text-2xl font-bold tracking-tight max-w-fit block mx-auto"><img src="./images/logo.jpg"
+              alt="" class="h-8 sm:h-10" /></a>
+
+          <p class="text-gray-400 text-sm">
+            <span data-i18n="footer.tagline">Matériel sportif de qualité pour tous.</span>
+          </p>
+        </div>
+
+        <!-- Liens rapides
+      <nav class="flex flex-wrap justify-center gap-4 md:gap-6 text-gray-400 text-sm">
+        <a href="#" class="hover:text-white">Accueil</a>
+        <a href="#" class="hover:text-white">Boutique</a>
+        <a href="#" class="hover:text-white">À propos</a>
+        <a href="#" class="hover:text-white">Contact</a>
+      </nav> -->
+
+        <!-- Contact WhatsApp -->
+        <a href="https://instagram.com/athlex_pro" target="_blank"
+          class="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-lg flex items-center gap-2 shadow hover:from-purple-600 hover:to-pink-600 transition text-sm sm:text-base">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z">
+            </path>
+          </svg>
+          <span data-i18n="footer.instagram">Suivez-nous sur Instagram</span>
+        </a>
+      </div>
+
+      <div class="border-t border-gray-700 mt-6 pt-6 text-center text-gray-400 text-xs">
+        <p data-i18n="footer.copyright">2025 AthlexPro. Tous droits réservés.</p>
+        <!-- <p>
+            Créé par
+            <a
+              href="https://www.linkedin.com/in/ayoub-akraou-051a431a8/"
+              class="text-primary-400 hover:text-white"
+              >Mr. AKRAOU</a
+            >
+          </p> -->
+      </div>
+    </div>
+  </footer>
+
+  <script></script>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    window.addEventListener("load", function () {
+      // Attendre que la page soit complètement chargée
+      setTimeout(function () {
+        var swiper = new Swiper(".product-swiper", {
+          // Paramètres essentiels
+          loop: true,
+          grabCursor: true,
+          slidesPerView: 1, // Afficher une seule diapositive à la fois
+          spaceBetween: 0, // Pas d'espace entre les diapositives
+          width: null, // Laisser Swiper calculer la largeur automatiquement
+
+          // Pagination
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+          },
+
+          // Boutons de navigation
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+
+          // Empêcher le débordement
+          preventInteractionOnTransition: true,
+          normalizeSlideIndex: true,
+          centerInsufficientSlides: true,
+
+          // Effet de transition
+          effect: "fade",
+          fadeEffect: {
+            crossFade: true,
+          },
+        });
+
+        console.log("Swiper initialized");
+      }, 500); // Attendre 500ms pour s'assurer que tout est bien chargé
+    });
+  </script>
+</body>
+
+</html>
